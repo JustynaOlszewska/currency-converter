@@ -7,28 +7,31 @@ import TaskState from "./context/tasks/TaskState";
 import HistoryState from "./context/history/HistoryState";
 import StorageState from "./context/storage/StorageState";
 import { StyledWrapper, StyledDiv } from "./styles/styleComponents/StyledApp";
+import ErrorBoundary from "./ErrorBoundary";
 const Main = lazy(() => import("./components/pages/main/Main"));
 
 const App: React.FC = () => {
   return (
-    <TaskState>
-      <HistoryState>
-        <StorageState>
-          <ThemeProvider theme={theme}>
-            <StyledWrapper>
-              <StyledDiv />
-              <Router>
-                <Suspense fallback={<Spinner />}>
-                  <Switch>
-                    <Route path="/currency-converter" component={Main} />
-                  </Switch>
-                </Suspense>
-              </Router>
-            </StyledWrapper>
-          </ThemeProvider>
-        </StorageState>
-      </HistoryState>
-    </TaskState>
+    <ErrorBoundary>
+      <TaskState>
+        <HistoryState>
+          <StorageState>
+            <ThemeProvider theme={theme}>
+              <StyledWrapper>
+                <StyledDiv />
+                <Router>
+                  <Suspense fallback={<Spinner />}>
+                    <Switch>
+                      <Route path="/currency-converter" component={Main} />
+                    </Switch>
+                  </Suspense>
+                </Router>
+              </StyledWrapper>
+            </ThemeProvider>
+          </StorageState>
+        </HistoryState>
+      </TaskState>
+    </ErrorBoundary>
   );
 };
 
