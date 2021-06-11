@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { lazy, Suspense } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./styles/share";
+import Spinner from "./components/atoms/spinner/Spinner";
+import TaskState from "./context/tasks/TaskState";
+import HistoryState from "./context/history/HistoryState";
+import StorageState from "./context/storage/StorageState";
+import { StyledWrapper, StyledDiv } from "./styles/styleComponents/StyledApp";
+const Main = lazy(() => import("./components/pages/main/Main"));
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TaskState>
+      <HistoryState>
+        <StorageState>
+          <ThemeProvider theme={theme}>
+            <StyledWrapper>
+              <StyledDiv />
+              <Router>
+                <Suspense fallback={<Spinner />}>
+                  <Switch>
+                    <Route path="/currency-converter" component={Main} />
+                  </Switch>
+                </Suspense>
+              </Router>
+            </StyledWrapper>
+          </ThemeProvider>
+        </StorageState>
+      </HistoryState>
+    </TaskState>
   );
-}
+};
 
 export default App;
