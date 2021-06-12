@@ -1,16 +1,13 @@
 import React, { useContext, useEffect, useState, lazy } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import TaskContext from "../../../context/tasks/taskContext";
 import HistoryContext from "../../../context/history/historyContext";
 import { currentDate } from "../../../utilities";
-import { IFormInput } from "./typesTS";
+import useSubmit from "../../../hooks/useSubmit/useSubmit";
 import {
   StyledH1,
   StyledWrapperSectionForm,
   StyledForm,
 } from "../../../styles/styleComponents/StyledForm";
-import { schema } from "./validation";
 const Button = lazy(() => import("../../atoms/button/Button"));
 const SelectInputs = lazy(
   () => import("../../molecules/selectInputs/SelectInputs")
@@ -60,20 +57,11 @@ const Form: React.FC = () => {
     setNewToCurrency(currency);
   }, [currency]);
 
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<IFormInput>({
-    resolver: yupResolver(schema),
+  const { control, handleSubmit, amount, onSubmit } = useSubmit({
+    getExchangeRate,
+    newFromCurrency,
+    newToCurrency,
   });
-  const { amount } = errors || {};
-
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    const { amount } = data;
-    if (!getExchangeRate) return;
-    getExchangeRate(newFromCurrency, newToCurrency, Number(amount));
-  };
 
   return (
     <StyledWrapperSectionForm>

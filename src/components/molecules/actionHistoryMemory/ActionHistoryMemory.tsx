@@ -26,7 +26,7 @@ const ActionHistoryMemory: React.FC<ActionHistoryMemoryProps> = ({
   const handleClickOpenHistory = (): void => {
     settransla(true);
   };
-  const handleClickCloseHistory = () => {
+  const handleClickCloseHistory = (): void => {
     settransla(false);
     history.push(`${url}`);
   };
