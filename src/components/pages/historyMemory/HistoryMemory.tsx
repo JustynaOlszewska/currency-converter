@@ -1,18 +1,20 @@
 import React, { useContext, useEffect, lazy } from "react";
 import HistoryContext from "../../../context/history/historyContext";
 import StorageContext from "../../../context/storage/storageContext";
-import { arrayHeaderElements } from "../../../constant";
 import { Transla } from "../../../shareTS";
+
+import { StyledHeader } from "../../../styles/styleComponents/StyledHistoryMemory";
+import { arrayHeaderElements } from "../../../constant";
+
 import {
   StyledWrapperHistoryMemory,
   StyledContainerDiv,
-  StyledHeader,
 } from "../../../styles/styleComponents/StyledHistoryMemory";
 const ArrayHistory = lazy(
   () => import("../../molecules/arrayHistory/ArrayHistory")
 );
-const ArrayHeaderElement = lazy(
-  () => import("../../atoms/arrayHeaderElement/ArrayHeaderElement")
+const ArrayHeader = lazy(
+  () => import("../../molecules/arrayHeader/ArrayHeader")
 );
 const ResetHistory = lazy(
   () => import("../../atoms/resetHistory/ResetHistory")
@@ -35,11 +37,7 @@ const HistoryMemory: React.FC<Transla> = ({ transla }: Transla) => {
   return (
     <StyledWrapperHistoryMemory transla={transla}>
       <StyledContainerDiv>
-        <StyledHeader>
-          {arrayHeaderElements.map((element) => (
-            <ArrayHeaderElement key={element} element={element} />
-          ))}
-        </StyledHeader>
+        <ArrayHeader />
         <ArrayHistory />
         <ResetHistory />
       </StyledContainerDiv>
