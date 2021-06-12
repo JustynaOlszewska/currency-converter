@@ -1,2 +1,0 @@
-(this["webpackJsonpcurrency-converter"]=this["webpackJsonpcurrency-converter"]||[]).push([[1],{236:function(e,t,c){"use strict";c.r(t);c(0);var r=c(1);t.default=function(e){var t=e.view,c=e.children;return Object(r.jsxs)("svg",{xmlns:"http://www.w3.org/2000/svg",fill:t?void 0:"#f6f7f9",width:"24",height:"24",viewBox:"0 0 24 24",children:[Object(r.jsx)("defs",{}),c,Object(r.jsx)("path",{className:"b",d:"M16.01,11H4v2H16.01v3L20,12,16.01,8Z"})]})}}}]);
-//# sourceMappingURL=1.effbdbf1.chunk.js.map

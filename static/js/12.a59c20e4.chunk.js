@@ -1,0 +1,2 @@
+(this["webpackJsonpcurrency-converter"]=this["webpackJsonpcurrency-converter"]||[]).push([[12],{220:function(e,n,r){"use strict";r.r(n);var t=r(0),c=r(111),u=["Data","Pred konwersj\u0105","Po konwersji"],o=r(1),s=Object(t.lazy)((function(){return r.e(8).then(r.bind(null,249))}));n.default=function(){return Object(o.jsx)(c.b,{children:u.map((function(e){return Object(o.jsx)(s,{element:e},e)}))})}}}]);
+//# sourceMappingURL=12.a59c20e4.chunk.js.map
