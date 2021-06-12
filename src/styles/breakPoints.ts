@@ -8,5 +8,6 @@ export enum breakPoints {
   minilarge = 900,
   large = 1024,
   middlelarge = 1280,
+  extralarge = 1400,
   biglarge = 1920,
 }

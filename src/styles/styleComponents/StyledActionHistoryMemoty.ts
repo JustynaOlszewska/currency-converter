@@ -35,9 +35,14 @@ export const StyledWrapperActionHistory = styled.section<Transla>`
     width: 700px;
     left: -60%;
   }
+  @media (min-width: ${breakPoints.extralarge}px) and (orientation: landscape) {
+    left: -55%;
+  }
   @media (min-width: ${breakPoints.biglarge}px) and (orientation: landscape) {
     width: 602px;
     left: -14px;
+    transform: ${(props) =>
+      props.transla ? "translateX(95%)" : "translateX(13%)"};
   }
 `;
 export const StyledNavLink = styled(NavLink)`

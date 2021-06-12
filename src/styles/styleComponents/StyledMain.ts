@@ -32,6 +32,9 @@ export const StyledWrapperMain = styled.section`
     width: 700px;
     height: 454px;
   }
+  @media (min-width: ${breakPoints.extralarge}px) and (orientation: landscape) {
+    left: 350px;
+  }
   @media (min-width: ${breakPoints.biglarge}px) and (orientation: landscape) {
     top: 213px;
     left: 359px;
