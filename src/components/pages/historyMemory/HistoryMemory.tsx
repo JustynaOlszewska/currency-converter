@@ -3,9 +3,6 @@ import HistoryContext from "../../../context/history/historyContext";
 import StorageContext from "../../../context/storage/storageContext";
 import { Transla } from "../../../shareTS";
 
-import { StyledHeader } from "../../../styles/styleComponents/StyledHistoryMemory";
-import { arrayHeaderElements } from "../../../constant";
-
 import {
   StyledWrapperHistoryMemory,
   StyledContainerDiv,
